@@ -11,6 +11,9 @@ export class User {
   @Column({ unique: true })
   email: string
 
+  @Column({ default: false })
+  active: boolean
+
   @CreateDateColumn({ name: 'created_at', type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
   createdAt: Date;
 
