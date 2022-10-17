@@ -6,9 +6,10 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ProfilesModule } from './profiles/profiles.module';
 import { PostsModule } from './posts/posts.module';
+import { RolesModule } from './roles/roles.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(dataSourceOptions), UsersModule, ProfilesModule, PostsModule],
+  imports: [TypeOrmModule.forRoot(dataSourceOptions), UsersModule, ProfilesModule, PostsModule, RolesModule],
   controllers: [AppController],
   providers: [AppService],
 })
