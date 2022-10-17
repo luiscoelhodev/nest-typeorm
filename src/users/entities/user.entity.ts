@@ -1,6 +1,7 @@
 import { Profile } from "src/profiles/entities/profile.entity";
 import { Post } from "src/posts/entities/post.entity"
-import { Column, CreateDateColumn, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Role } from "src/roles/entities/role.entity";
 
 @Entity()
 export class User {
@@ -27,4 +28,7 @@ export class User {
 
   @OneToMany(() => Post, post => post.user)
   posts: Post[]
+
+  @ManyToMany(() => Role, role => role.users)
+  roles: Role[]
 }

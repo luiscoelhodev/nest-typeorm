@@ -17,4 +17,15 @@ export class Role {
 
   @UpdateDateColumn({ name: 'updated_at', type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
   updatedAt: Date;
+
+  @ManyToMany(() => User, user => user.roles)
+  @JoinTable({
+    name: 'users_roles', joinColumn: {
+      name: 'role_id', referencedColumnName: 'id'
+    },
+    inverseJoinColumn: {
+      name: 'user_id', referencedColumnName: 'id'
+    }
+  })
+  users: User[];
 }
