@@ -12,4 +12,7 @@ export class CreateUserDto {
   @IsBoolean()
   @IsNotEmpty()
   active: boolean
+
+  @IsAlpha()
+  gender: string
 }
